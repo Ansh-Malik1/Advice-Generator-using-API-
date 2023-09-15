@@ -1,0 +1,175 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root{
+    --grayBlue: hsl(217, 19%, 38%);
+    --grayBlueD : hsl(217, 19%, 24%);
+    --darkBlue : hsl(218, 23%, 16%);
+    --cyanLight : hsl(193, 38%, 86%);
+    --neonGreen : hsl(150, 100%, 66%);
+
+}
+
+#wrapper{
+    height: 100vh;
+    width:100vw;
+    background-image: linear-gradient(var(--darkBlue),var(--grayBlueD));
+    background-repeat: no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: var(--grayBlue);
+    min-width:40%;
+    max-width:90%;
+    min-height: 65%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    padding:1rem;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 3px var(--cyanLight);
+}
+
+.dice{
+    height: 70px;
+    width:70px;
+    z-index: 1;
+    position: absolute;
+    bottom:-2rem;
+    /* left:43%; */
+    background-color: var(--neonGreen);
+    padding: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custom-loader {
+    display: none;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    padding:1px;
+    background:conic-gradient(#0000 10%, 	#52ffa8) content-box;
+    -webkit-mask:
+      repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+      radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 calc(100% - 8px));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation:s4 1s infinite steps(10);
+  }
+  @keyframes s4 {to{transform: rotate(1turn)}}
+
+.dice:hover{
+    box-shadow: 0 0 20px 2px var(--cyanLight);
+}
+.dice>img{
+    width: 100%;
+}
+
+.divider{
+    color:white;
+    display: flex;
+    mix-blend-mode:screen;
+    margin-bottom: 10px;
+}
+
+
+.adviceNo{
+    color: var(--neonGreen);
+    letter-spacing: 1.2;
+    text-shadow: 0 0 10px var(--cyanLight) ;
+    scale:1.5
+}
+
+[advice]{
+    color:white
+}
+
+.animate{
+    animation-name: rotation;
+    animation-duration: 0.5s;
+}
+
+@keyframes rotation {
+    25%{
+        rotate: 90deg;
+    }
+
+    50%{
+        rotate:180deg
+    }
+
+    75%{
+        rotate: 270drg;
+    }
+    100%{
+        rotate:360deg
+    }
+
+}
+
+.active{
+    display: block;
+}
+
